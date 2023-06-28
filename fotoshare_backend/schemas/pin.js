@@ -21,10 +21,20 @@ export default {
         {
             name: 'category',
             title: 'Category',
+            type: 'string'
+        },
+        {
+            name: 'image',
+            title: 'Image',
             type: 'image',
             options: {
-                hotspot: true
-            }
+              hotspot: true,
+            },
+        },
+        {
+            name: 'userId',
+            title: 'UserId',
+            type: 'string',
         },
         {
             name: 'postedBy',
