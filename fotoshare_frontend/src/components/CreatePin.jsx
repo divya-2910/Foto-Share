@@ -27,21 +27,22 @@ const CreatePin = ({user}) => {
       setLoading(true);
 
       client.assets
-        .upload('image', e.target.files[0], {contentType:type, fileName: name})
+        .upload('image', e.target.files[0], {contentType:type, filename: name})
         .then((document) => {
           setImageAsset(document);
           setLoading(false);
         })
         .catch((error) => {
           console.log(error)
-        })
+        });
     }
     else{
+      setLoading(false);
       setWrongImageType(false);
     }
-  }
+  };
 
-  const savePin=() =>{
+  const savePin = () =>{
     if(title && about && destination && imageAsset?._id && category){
       const doc = {
         _type: 'pin',
@@ -55,7 +56,7 @@ const CreatePin = ({user}) => {
             _ref: imageAsset?._id,
           },
         },
-        userid: user._id,
+        userId: user._id,
         postedBy: {
           _type: 'postedBy',
           _ref: user._id,
@@ -69,9 +70,9 @@ const CreatePin = ({user}) => {
     }
     else{
       setFields(true);
-      setTimeout(() => setFields(false), 2000)
+      setTimeout(() => {setFields(false);}, 2000,);
     }
-  }
+  };
   return (
     <div className='flex flex-col justify-center items-center mt-5 lg:h-4/5'>
       {fields ?? (
