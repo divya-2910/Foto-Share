@@ -4,7 +4,6 @@ import MasonryLayout from './MasonryLayout';
 import {client} from '../client';
 import {feedQuery, searchQuery} from '../utils/data';
 import Spinner from './Spinner';
-import { useAsyncError } from 'react-router-dom';
 
 const Search = ({searchTerm}) => {
   const [pins, setPins] = useState(null);
